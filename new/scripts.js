@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtns = document.querySelectorAll('.close');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
-    // Function to show the popup with provided content
     function showPopup(title, description, image) {
         popupTitle.textContent = title;
         popupDescription.innerHTML = description;
@@ -20,10 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         popup.style.display = 'block';
         
-        // Trigger MathJax to render the new content
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
     }
 
     events.forEach(event => {
@@ -55,13 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Apply random rotation to gallery items
     galleryItems.forEach(item => {
         const rotation = (Math.random() - 0.5) * 10; // Random rotation between -5 and 5 degrees
         item.style.transform = `rotate(${rotation}deg)`;
     });
 
-    // Add an easter egg
     const easterEgg = document.createElement('div');
     easterEgg.textContent = "You found the easter egg!";
     easterEgg.style.position = 'fixed';
