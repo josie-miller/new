@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to show the popup with provided content
     function showPopup(title, description, image) {
         popupTitle.textContent = title;
-        popupDescription.textContent = description;
+        popupDescription.innerHTML = description;
         if (image) {
             popupImage.src = image;
             popupImage.style.display = 'block';
@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             popupImage.style.display = 'none';
         }
         popup.style.display = 'block';
+        
+        // Trigger MathJax to render the new content
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
     }
 
     events.forEach(event => {
